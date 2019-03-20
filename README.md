@@ -1,17 +1,18 @@
 # How-to-get-multiple-parameters-with-same-name-from-the-Query-String-in-PHP-
-We look at different way in PHP to retrieve the query string and its parameter values from a URL.
+We look at different way in PHP to retrieve the query string and its parameter values from a URL. 
 
-Query String Of Current URL:
+
+1) Query String Of Current URL:
 
 echo $_SERVER['QUERY_STRING'];
 // Output: key1=value1&key2=value2
 
-Query String From A String:
+2) Query String From A String:
 
 echo parse_url('http://www.test.com/?key1=value1&key2=value2', PHP_URL_QUERY);
 // Output: key1=value1&key2=value2
 
-Query String Parameters As An Array:
+3) Query String Parameters As An Array:
 
 echo $_GET['key1']; // Output: value1
 
@@ -31,9 +32,11 @@ Array (
     ['key2'] => "value2"
 )
 
-Handling Duplicate Keys In A Query String:
+4) Handling Duplicate Keys In A Query String:
 
-Simply call this function fetch_value_from_url() where ever you get duplicate keys.
+URL format : https://www.test.in/?search_by=order&start_date=2019-01-01&end_date=2019-03-20&customer_id=&laundryid=1&laundryid=2&laundryid=3&laundryid=4&laundryid=8&laundryid=10&laundryid=11&laundryid=12
+
+Here we have multiple keys with same name, to solve this simply call this function fetch_value_from_url() where ever you get duplicate keys.
 
 
 
