@@ -38,6 +38,32 @@ URL format : https://www.test.in/?search_by=order&start_date=2019-01-01&end_date
 
 Here we have multiple keys with same name, to solve this simply call this function fetch_value_from_url() where ever you get duplicate keys.
 
+Usage : 
+
+See the index.php file, or use this below:
+
+<?php
+function fetch_value_from_url(){
+      
+    $query = $_SERVER['QUERY_STRING'];
+		$vars = array();
+		$second = array();
+		foreach (explode('&', $query) as $pair) {
+		    list($key, $value) = explode('=', $pair);
+		    if('' == trim($value)){
+		        continue;
+		    }
+		    if (array_key_exists($key, $vars)) {
+		        if (!array_key_exists($key, $second))
+		            $second[$key][] .= $vars[$key];
+		        $second[$key][] = $value;
+		    } else {
+		        $vars[$key] = urldecode($value);
+		    }
+		}
+    return array_merge($vars, $second);
+}
+
 
 
 
