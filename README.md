@@ -38,7 +38,7 @@ URL format : https://www.test.in/?search_by=order&start_date=2019-01-01&end_date
 
 Here we have multiple keys with same name, to solve this simply call this function fetch_value_from_url() where ever you get duplicate keys.
 
-### Usage ###
+Usage :
 
 See the index.php file, or use this below:
 
